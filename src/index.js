@@ -1,4 +1,3 @@
-import 'regenerator-runtime/runtime'
 import { getDefaultAccount, formatCurrency, balanceOf} from '@reach-sh/stdlib/ETH';
 
 window.onload = async () => {
