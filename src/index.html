@@ -7,9 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <h1>My page</h1>
-    <button onclick="connectWallet()">connect wallet</button>
-    <script src="./index.js"></script>
+    <div>
+        <button onclick="connectWallet()">connect wallet</button>
+        <div>
+            <input id="fundAmountInput" />
+            <button onclick="fundWallet()">fund wallet</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>

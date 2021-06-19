@@ -1,23 +1,31 @@
-import { getDefaultAccount, formatCurrency, balanceOf} from '@reach-sh/stdlib/ETH';
+import { loadStdlib } from "@reach-sh/stdlib";
+const reach = loadStdlib('ALGO')
 
 window.onload = async () => {
 
-    let account;
-    let balance;
+    let account
+    let balance
 
     window.connectWallet = async () => {
-        await getAccount();
-        await getBalance();
+        await getAccount()
+        await getBalance()
+    }
+
+    window.fundWallet = async () => {
+        let faucet = reach.getFaucet();
+        let fundAmount = document.getElementById("fundAmountInput").value
+        await reach.fundFromFaucet(account, reach.parseCurrency(fundAmount))
+        await getBalance()
     }
 
     const getAccount = async () => {
-        account = await getDefaultAccount();
-        console.log(account);
+        account = await reach.getDefaultAccount()
+        console.log(account)
     }
 
     const getBalance = async () => {
-        balance = formatCurrency(await balanceOf(account), 4);
-        console.log(balance);
+        let rawBalance = await reach.balanceOf(account)
+        balance = reach.formatCurrency(rawBalance, 4)
+        console.log(balance)
     }
-
 }
