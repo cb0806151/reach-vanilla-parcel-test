@@ -24,6 +24,6 @@
     "parcel-bundler": "^1.12.5"
   },
   "dependencies": {
-    "@reach-sh/stdlib": "^0.1.2-rc.58"
+    "@reach-sh/stdlib": "^0.1.7-rc.2"
   }
 }

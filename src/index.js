@@ -12,14 +12,13 @@ window.onload = async () => {
     }
 
     window.fundWallet = async () => {
-        let faucet = reach.getFaucet();
         let fundAmount = document.getElementById("fundAmountInput").value
         await reach.fundFromFaucet(account, reach.parseCurrency(fundAmount))
         await getBalance()
     }
 
     const getAccount = async () => {
-        account = await reach.getDefaultAccount()
+        account = await reach.createAccount()
         console.log(account)
     }
 
